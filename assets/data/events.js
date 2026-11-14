@@ -5,6 +5,19 @@
  */
 window.BAYESCOMP_EVENTS = [
   {
+    "id": "event-2027-01",
+    "date": "2027-01-27",
+    "time": "13:30–14:30 JST",
+    "venue": "ISM A504",
+    "speaker": "矢野翔太，東京大学 / Shota Yano, University of Tokyo",
+    "title": "Title to be announced / タイトル未定",
+    "language": "TBA / 未定",
+    "abstract": [
+      "To be announced. / 未定"
+    ],
+    "links": []
+  },
+  {
     "id": "event-2026-01",
     "date": "2026-07-16",
     "time": "15:00–16:00 JST",
