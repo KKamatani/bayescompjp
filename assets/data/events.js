@@ -11,7 +11,20 @@ window.BAYESCOMP_EVENTS = [
     "venue": "ISM A504",
     "speaker": "矢野翔太，東京大学 / Shota Yano, University of Tokyo",
     "title": "Title to be announced / タイトル未定",
-    "language": "TBA / 未定",
+    "language": "Japanese",
+    "abstract": [
+      "To be announced. / 未定"
+    ],
+    "links": []
+  },
+  {
+    "id": "event-2026-04",
+    "date": "2026-12-02",
+    "time": "13:30–14:30 JST",
+    "venue": "ISM A504",
+    "speaker": "Youjia Wang, National University of Singapore",
+    "title": "Title to be announced / タイトル未定",
+    "language": "English",
     "abstract": [
       "To be announced. / 未定"
     ],
