@@ -346,25 +346,25 @@ h1 {
 
 .registration-link {
   display: inline-block;
-  margin-top: 1.25rem;
-  padding: 0.65rem 0.9rem;
-  color: white;
-  background: var(--blue);
-  font-size: 0.8rem;
-  font-weight: 650;
+  margin-top: 1.15rem;
   text-decoration: none;
+  text-underline-offset: 0.2em;
 }
+
+.registration-link:hover { text-decoration: underline; }
 
 .abstract-details { margin-top: 1.15rem; }
 
+.registration-link,
 .abstract-details summary {
   width: fit-content;
   color: var(--blue);
   cursor: pointer;
   font-size: 0.78rem;
   font-weight: 650;
-  list-style-position: outside;
 }
+
+.abstract-details summary { list-style-position: outside; }
 
 .abstract-body {
   max-width: 48rem;
