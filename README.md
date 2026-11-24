@@ -18,16 +18,16 @@ Required fields:
 - `abstract`: an array of paragraphs
 - `links`: related papers or project pages
 
-For a future event, an optional registration link can be added:
+For a future event, an optional online participation link (a Zoom meeting or registration page) can be added:
 
 ```js
 registration: {
-  label: "Register for online participation",
+  label: "Join via Zoom / Zoomで参加",
   url: "https://..."
 }
 ```
 
-The next future event is shown automatically at the top. Once its date has passed, it moves into the recent list and archive. Remove expired Zoom or registration links after the event.
+The next future event is shown automatically at the top. Only that event's online participation link is displayed, in the Next seminar card. These links are never displayed in Recent or Archive, even for future events listed there. Once the event date has passed in Japan Standard Time, its link stops displaying and the next seminar takes its place. Remove expired Zoom or registration links from the event data after the event.
 
 ## Mathematical notation
 

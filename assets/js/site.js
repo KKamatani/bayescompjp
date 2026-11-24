@@ -85,7 +85,7 @@ const createEventCard = (event, variant = "standard") => {
 
   article.append(date, title, speaker, metadata);
 
-  if (event.registration && event.date >= todayInTokyo) {
+  if (variant === "featured" && event.registration && event.date >= todayInTokyo) {
     article.append(
       createLink(event.registration, "registration-link")
     );
