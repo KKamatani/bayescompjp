@@ -138,15 +138,37 @@ const years = [...new Set(events.map((event) => event.date.slice(0, 4)))];
 const renderArchiveYear = (year) => {
   if (!archiveContainer || !yearFilter) return;
 
-  archiveContainer.replaceChildren();
-  events
-    .filter((event) => event.date.startsWith(year))
-    .forEach((event) => archiveContainer.append(createEventCard(event)));
+  let archiveUpdated = false;
+  const updateArchive = () => {
+    archiveContainer.replaceChildren();
+    events
+      .filter((event) => event.date.startsWith(year))
+      .forEach((event) => archiveContainer.append(createEventCard(event)));
 
-  yearFilter.querySelectorAll("button").forEach((button) => {
-    const isCurrent = button.dataset.year === year;
-    button.setAttribute("aria-pressed", String(isCurrent));
-  });
+    yearFilter.querySelectorAll("button").forEach((button) => {
+      const isCurrent = button.dataset.year === year;
+      button.setAttribute("aria-pressed", String(isCurrent));
+    });
+    archiveUpdated = true;
+  };
+
+  const mathJax = window.MathJax;
+  if (!mathJax?.whenReady) {
+    // Initial content is rendered before MathJax loads and typesets the page.
+    updateArchive();
+    return;
+  }
+
+  // Wait for active typesetting before removing the previous year's content.
+  mathJax.whenReady(() => {
+    mathJax.typesetClear([archiveContainer]);
+    updateArchive();
+  })
+    .then(() => mathJax.typesetPromise([archiveContainer]))
+    .catch((error) => {
+      if (!archiveUpdated) updateArchive();
+      console.warn("MathJax could not typeset the seminar archive:", error);
+    });
 };
 
 if (yearFilter && archiveContainer) {

@@ -1,6 +1,6 @@
 # BayesCompJp website
 
-Static website for the Seminar on Bayesian Computation. It is designed for GitHub Pages and has no build step or external dependency.
+Static website for the Seminar on Bayesian Computation. It is designed for GitHub Pages and has no build step. MathJax 4 is loaded from jsDelivr to display mathematical notation.
 
 ## Add or update a seminar
 
@@ -28,6 +28,22 @@ registration: {
 ```
 
 The next future event is shown automatically at the top. Once its date has passed, it moves into the recent list and archive. Remove expired Zoom or registration links after the event.
+
+## Mathematical notation
+
+Titles and abstracts support inline math with `$...$` or `\(...\)`, and display math with `$$...$$` or `\[...\]`. Math is also rendered after switching archive years.
+
+Use `String.raw` in `assets/data/events.js` to preserve LaTeX backslashes:
+
+```js
+title: String.raw`Convergence in $L^2(\pi)$`,
+abstract: [
+  String.raw`The target distribution is \(\pi\).`,
+  String.raw`$$\pi(\theta \mid x) = \frac{p(x \mid \theta)\,p(\theta)}{p(x)}.$$`
+]
+```
+
+In ordinary quoted JavaScript strings, double each backslash instead (for example, `"$\\pi$"`). Use `\$` for a literal dollar sign. An internet connection is needed to load MathJax, including during local preview.
 
 ## Local preview
 
